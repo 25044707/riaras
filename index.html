@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rasilingwani Rialivhuwa Madzanga · CS portfolio</title>
+  <!-- formal font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #f4f7fb;
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+      line-height: 1.6;
+      color: #1e2b3c;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* main container – wide, with max-width for readability */
+    .container {
+      max-width: 1200px;
+      width: 100%;
+      padding: 2rem 1.5rem 3rem;
+    }
+
+    /* sections with white cards, but more spaced out */
+    .section {
+      background-color: #ffffff;
+      border-radius: 28px;
+      box-shadow: 0 8px 24px rgba(0, 20, 40, 0.05);
+      padding: 2.2rem 2.5rem;
+      margin-bottom: 2.5rem;
+      transition: box-shadow 0.2s;
+    }
+
+    .section:last-of-type {
+      margin-bottom: 0;
+    }
+
+    /* header / hero section – no extra card, just clean */
+    .hero {
+      margin-bottom: 2rem;
+      padding: 0 0.5rem;
+    }
+
+    .name-id {
+      font-size: 2.5rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: #0f2b3f;
+      line-height: 1.2;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 0.8rem 1.5rem;
+    }
+
+    .name-id .id {
+      font-size: 1.4rem;
+      font-weight: 500;
+      color: #2b5575;
+      background: #e9f0f8;
+      padding: 0.4rem 1.4rem;
+      border-radius: 60px;
+      white-space: nowrap;
+    }
+
+    .subhead {
+      font-size: 1.4rem;
+      font-weight: 400;
+      color: #3d5e7a;
+      margin-top: 0.7rem;
+    }
+
+    /* about section – image and intro */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 2.8rem;
+      align-items: center;
+    }
+
+    .portrait {
+      background-color: #f2f6fc;
+      border-radius: 24px;
+      overflow: hidden;
+      border: 1px solid #e2eaf2;
+      box-shadow: 0 8px 18px rgba(0,20,40,0.06);
+    }
+
+    .portrait img {
+      display: block;
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      aspect-ratio: 1/1.1;
+      border-radius: 24px;
+      transition: transform 0.4s ease;
+    }
+
+    .portrait img:hover {
+      transform: scale(1.02);
+    }
+
+    .intro-text p {
+      font-size: 1.15rem;
+      margin-bottom: 1.3rem;
+      color: #203a4e;
+    }
+
+    .intro-text strong {
+      color: #0f2b3f;
+    }
+
+    /* skills section */
+    .section-title {
+      font-size: 1.8rem;
+      font-weight: 600;
+      color: #0f2b3f;
+      letter-spacing: -0.01em;
+      margin-bottom: 1.8rem;
+      border-left: 8px solid #1d3f5c;
+      padding-left: 1.2rem;
+    }
+
+    .skills-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem 1.2rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .skill-tag {
+      background: #eaf0f8;
+      color: #1f3c54;
+      padding: 0.7rem 1.8rem;
+      border-radius: 50px;
+      font-size: 1rem;
+      font-weight: 500;
+      border: 1px solid transparent;
+      transition: all 0.2s;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+      cursor: default;
+    }
+
+    .skill-tag:hover {
+      background: #d4e2f2;
+      border-color: #b3c9df;
+      transform: translateY(-2px);
+    }
+
+    /* study note card (now a distinct block) */
+    .study-note {
+      background-color: #f8fafd;
+      padding: 2rem 2.5rem;
+      border-radius: 24px;
+      border-left: 8px solid #1d3f5c;
+      margin: 2.2rem 0 1rem;
+      font-size: 1.1rem;
+      box-shadow: inset 0 1px 6px #f0f5fc, 0 6px 14px rgba(0,20,40,0.04);
+    }
+
+    .study-note p {
+      margin-bottom: 1rem;
+    }
+
+    .study-note p:last-child {
+      margin-bottom: 0;
+    }
+
+    .signature-line {
+      font-weight: 600;
+      color: #1d3f5c;
+      margin-top: 1rem;
+      display: inline-block;
+    }
+
+    /* extra sections: coursework / interests (plausible for a cs student) */
+    .extra-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-top: 1.8rem;
+    }
+
+    .extra-card {
+      background: #f2f8ff;
+      border-radius: 20px;
+      padding: 1.5rem 1.8rem;
+      border: 1px solid #e3ecf5;
+    }
+
+    .extra-card h3 {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: #1d3f5c;
+      margin-bottom: 0.8rem;
+      border-bottom: 2px solid #cbdae9;
+      padding-bottom: 0.4rem;
+    }
+
+    .extra-card ul {
+      list-style: none;
+    }
+
+    .extra-card li {
+      padding: 0.3rem 0 0.3rem 1.2rem;
+      position: relative;
+    }
+
+    .extra-card li::before {
+      content: "▹";
+      position: absolute;
+      left: 0;
+      color: #1d3f5c;
+      font-weight: 600;
+    }
+
+    /* footer */
+    .footer {
+      margin-top: 3rem;
+      padding-top: 1.8rem;
+      border-top: 2px solid #dde5ef;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 1rem;
+      color: #4e6a82;
+    }
+
+    .footer .year {
+      background: #ecf2f9;
+      padding: 0.3rem 1.4rem;
+      border-radius: 40px;
+    }
+
+    /* responsive */
+    @media (max-width: 850px) {
+      .container { padding: 1.5rem 1rem; }
+      .section { padding: 1.8rem; }
+      .about-grid { grid-template-columns: 1fr; gap: 1.8rem; }
+      .name-id { flex-direction: column; align-items: flex-start; }
+      .name-id .id { white-space: normal; }
+      .extra-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 500px) {
+      .hero .name-id { font-size: 2rem; }
+      .subhead { font-size: 1.2rem; }
+      .section-title { font-size: 1.6rem; }
+      .study-note { padding: 1.5rem; }
+    }
+
+    ::selection { background: #1d3f5c; color: white; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- HERO section (no card) -->
+    <div class="hero">
+      <div class="name-id">
+        <span>Rasilingwani Rialivhuwa Madzanga</span>
+        <span class="id">25044707</span>
+      </div>
+      <div class="subhead">Computer Science Student</div>
+    </div>
+
+    <!-- ABOUT section (white card) -->
+    <section class="section">
+      <div class="about-grid">
+        <div class="portrait">
+          <img 
+            src="https://i.ibb.co/Tq1BpSkQ/Whats-App-Image-2026-03-06-at-13-08-44-jpegrr.jpg" 
+            alt="Rasilingwani Rialivhuwa Madzanga"
+            loading="lazy"
+            onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22400%22%20height%3D%22400%22%20viewBox%3D%220%200%20400%20400%22%3E%3Crect%20width%3D%22400%22%20height%3D%22400%22%20fill%3D%22%23eaf0f8%22%2F%3E%3Ctext%20x%3D%2250%22%20y%3D%22200%22%20font-family%3D%22Inter%22%20font-size%3D%2220%22%20fill%3D%22%232d4e6b%22%3Eimage%20placeholder%3C%2Ftext%3E%3C%2Fsvg%3E';"
+          >
+        </div>
+        <div class="intro-text">
+          <p><strong>My name is Rasilingwani Rialivhuwa Madzanga.</strong> I am a student who is passionate about learning and improving my skills in technology and problem-solving. This portfolio shows the knowledge I have gained throughout my studies.</p>
+          <p>Through a year of studying, I improved my understanding of how computer systems work. I also learned how to research information and organise my work effectively.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS section -->
+    <section class="section">
+      <h2 class="section-title">Skills gained</h2>
+      <div class="skills-tags">
+        <span class="skill-tag">Problem solving</span>
+        <span class="skill-tag">Programming basics</span>
+        <span class="skill-tag">Understanding OS</span>
+        <span class="skill-tag">Database concepts</span>
+        <span class="skill-tag">Teamwork</span>
+        <span class="skill-tag">Presentation skills</span>
+        <span class="skill-tag">Research & organisation</span>
+      </div>
+
+      <!-- study note integrated here as a deeper reflection -->
+      <div class="study-note">
+        <p>Through a year of studying, I improved my understanding of how computer systems work. I also learned how to research information and organise my work. I continue to build on these foundations every semester.</p>
+        <p class="signature-line">— committed to continuous growth</p>
+      </div>
+    </section>
+
+    <!-- ADDITIONAL ACADEMIC INSIGHTS (plausible, generic) -->
+    <section class="section">
+      <h2 class="section-title">Coursework & interests</h2>
+      <div class="extra-grid">
+        <div class="extra-card">
+          <h3>Relevant coursework</h3>
+          <ul>
+            <li>Data Structures & Algorithms</li>
+            <li>Computer Architecture</li>
+            <li>Operating Systems</li>
+            <li>Database Design</li>
+            <li>Web Development basics</li>
+          </ul>
+        </div>
+        <div class="extra-card">
+          <h3>Areas of interest</h3>
+          <ul>
+            <li>Software engineering</li>
+            <li>System analysis</li>
+            <li>Network security</li>
+            <li>Cloud computing</li>
+            <li>Tech ethics</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT / INFO (lightweight) -->
+    <section class="section" style="padding-bottom: 2rem;">
+      <h2 class="section-title">Connect</h2>
+      <div style="display: flex; flex-wrap: wrap; gap: 2.5rem; align-items: center;">
+        <div>
+          <p style="font-size: 1.1rem;"><span style="font-weight:600; color:#1d3f5c;">Student ID:</span> 25044707</p>
+          <p style="font-size: 1.1rem;"><span style="font-weight:600; color:#1d3f5c;">Email:</span> <span style="border-bottom:1px dotted #b0c8dd;">r.r.madzanga@students.example</span> (placeholder)</p>
+        </div>
+        <div style="font-size: 0.95rem; color:#3a5e7a;">based in South Africa</div>
+      </div>
+    </section>
+
+    <!-- FOOTER outside any section but inside container -->
+    <footer class="footer">
+      <span>© <span id="currentYear"></span> · Rasilingwani Rialivhuwa Madzanga · student portfolio</span>
+      <span class="year">ID 25044707</span>
+    </footer>
+  </div>
+
+  <script>
+    (function() {
+      // set current year
+      const yearSpan = document.getElementById('currentYear');
+      if (yearSpan) yearSpan.textContent = new Date().getFullYear();
+
+      // subtle interactivity: click on any skill tag highlights briefly
+      const tags = document.querySelectorAll('.skill-tag');
+      tags.forEach(tag => {
+        tag.addEventListener('click', function() {
+          this.style.backgroundColor = '#c9dcf0';
+          setTimeout(() => this.style.backgroundColor = '', 200);
+        });
+      });
+
+      // double‑click hero to show id
+      const hero = document.querySelector('.hero');
+      if (hero) {
+        hero.addEventListener('dblclick', () => {
+          alert('Student ID: 25044707 · Rasilingwani Rialivhuwa Madzanga');
+        });
+      }
+
+      // fallback for image error already in onerror attribute
+      console.log('Portfolio loaded — scrolling layout');
+    })();
+  </script>
+
+  <noscript>
+    <div style="text-align:center; margin-top:1rem; background:#ecf2f9; padding:0.6rem; border-radius:40px;">JavaScript optional — all content visible</div>
+  </noscript>
+</body>
+</html>
